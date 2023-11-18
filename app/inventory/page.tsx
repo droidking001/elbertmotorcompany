@@ -16,28 +16,15 @@ export default async function Home() {
       <div className="py-60">
         <div className="container border mx-auto">
           {projects.map((project) => (
-            <div className="grid justify-center" key={project._id}>
+            <div className="flex justify-center" key={project._id}>
               {project.image && (
                 <Image
                   src={project.image}
                   alt={project.make}
-                  width={500}
-                  height={500}
+                  width={1080}
+                  height={1920}
                 />
               )}
-              <h2
-                className="text-4xl bold flex justify-center mt-10"
-                key={project._id}
-              >
-                {project.year} {project.make} {project.model}
-              </h2>
-              <a
-                className="btn flex text-center"
-                key="{project_id}"
-                href="{/inventory/project.slug}"
-              >
-                See More Information
-              </a>
             </div>
           ))}
         </div>
