@@ -32,9 +32,9 @@ export default async function Home() {
                 {project.year} {project.make} {project.model}
               </h2>
               <a
+                href={`/inventory/${project.slug}`}
+                key={project._id}
                 className="btn flex text-center"
-                key="{project_id}"
-                href="{/inventory/project.slug}"
               >
                 See More Information
               </a>

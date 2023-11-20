@@ -31,3 +31,27 @@ export async function getProjects(): Promise<Project[]> {
     throw error; // Rethrow the error to propagate it for further handling
   }
 }
+
+export async function getProject(slug: string): Promise<Project> {
+  const client = createClient({
+    projectId: "6cqgpc9f",
+    dataset: "production",
+    apiVersion: "2023-11-11",
+  });
+
+  return client.fetch(
+    groq`*[_type == 'project' && slug.current ==$slug][0]{
+        _id,
+        _createdAt,
+        year,
+        make,
+        model,
+        'slug': slug.current,
+        'image': image.asset->url,
+        miles,
+        price,
+        details
+    }`,
+    { slug: slug }
+  );
+}
