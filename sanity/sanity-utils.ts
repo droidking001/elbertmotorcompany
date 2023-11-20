@@ -1,4 +1,3 @@
-// sanity-utils.ts
 import { createClient, groq } from "next-sanity";
 import { Project } from "@/types/Project";
 
@@ -12,16 +11,21 @@ export async function getProjects(): Promise<Project[]> {
 
     const projects = await client.fetch(
       groq`*[_type == 'project']{
-          _id,
-          _createdAt,
-          year,
-          make,
-          model,
-          'slug': slug.current,
-          'image': image.asset->url,
-          miles,
-          price,
-          details
+        _id,
+        _createdAt,
+        year,
+        make,
+        model,
+        'slug': slug.current,
+        'image': image[]{
+          asset->{
+            url
+          },
+          alt
+        },
+        miles,
+        price,
+        details
       }`
     );
 
@@ -40,17 +44,22 @@ export async function getProject(slug: string): Promise<Project> {
   });
 
   return client.fetch(
-    groq`*[_type == 'project' && slug.current ==$slug][0]{
-        _id,
-        _createdAt,
-        year,
-        make,
-        model,
-        'slug': slug.current,
-        'image': image.asset->url,
-        miles,
-        price,
-        details
+    groq`*[_type == 'project' && slug.current == $slug][0]{
+      _id,
+      _createdAt,
+      year,
+      make,
+      model,
+      'slug': slug.current,
+      'image': image[]{
+        asset->{
+          url
+        },
+        alt
+      },
+      miles,
+      price,
+      details
     }`,
     { slug: slug }
   );

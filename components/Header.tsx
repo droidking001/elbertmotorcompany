@@ -18,7 +18,7 @@ const Header: React.FC = () => {
             Home
           </a>
           <a
-            href="#vehicles"
+            href="/inventory"
             className="text-1.7xl mx-4 text-black transition duration-300 hover:text-red-500"
           >
             Vehicles

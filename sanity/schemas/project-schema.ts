@@ -27,15 +27,9 @@ const project = {
     {
       name: "image",
       title: "Image",
-      type: "image",
+      type: "array",
+      of: [{ type: "image" }],
       options: { hotspot: true },
-      fields: [
-        {
-          name: "alt",
-          title: "Alt",
-          type: "string",
-        },
-      ],
     },
     {
       name: "miles",
