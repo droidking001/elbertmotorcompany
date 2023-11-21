@@ -1,5 +1,12 @@
 import { PortableTextBlock } from "sanity";
 
+export type Image = {
+  asset: {
+    url: string;
+  };
+  alt: string;
+};
+
 export type Project = {
   _id: string;
   _createdAt: Date;
@@ -7,7 +14,8 @@ export type Project = {
   make: string;
   model: string;
   slug: string;
-  image: string;
+  image: Image[];
+  url: string;
   miles: string;
   price: string;
   details: PortableTextBlock[];
