@@ -44,7 +44,7 @@ export default function Home() {
               </h2>
               <a
                 href={`/inventory/${project.slug}`}
-                className="btn flex text-center"
+                className="btn flex text-center m-10"
                 key={project._id}
               >
                 See More Information

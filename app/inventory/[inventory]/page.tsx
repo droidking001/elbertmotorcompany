@@ -79,6 +79,9 @@ const ProjectPage = ({ params }: Props) => {
             <h3 className="text-5xl bold text-center text-red-600 mt-5">
               ${project.price}
             </h3>
+            <h3 className="text-3xl bold text-center mt-5">
+              {project.miles} miles
+            </h3>
             <div className="flex justify-around my-10">
               <button
                 className="btn flex text-center"
@@ -95,6 +98,11 @@ const ProjectPage = ({ params }: Props) => {
             </div>
             <div className="text-3xl text-center py-10 space-y-6">
               <PortableText value={project?.details} />
+            </div>
+            <div className="text-3xl flex justify-center">
+              <a className="btn flex text-center" href={"/inventory"}>
+                Back To Inventory
+              </a>
             </div>
           </div>
         </div>
