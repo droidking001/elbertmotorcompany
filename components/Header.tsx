@@ -27,7 +27,7 @@ const Header: React.FC = () => {
             href="/admin"
             className="text-1.7xl mx-4 text-black transition duration-300 hover:text-red-500"
           >
-            Services
+            Admin
           </a>
           <a
             href="#contact"

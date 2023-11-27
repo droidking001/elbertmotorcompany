@@ -4,13 +4,16 @@ const Footer: React.FC = () => {
   return (
     <section className="footer bg-light-red py-20">
       <div className="box-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-8 lg:px-20">
-        <div className="box text-center">
+        <div className="box text-center flex-col">
           <h3 className="text-2xl font-bold mb-4">Quick Links</h3>
           <a href="/" className="link">
             <i className="fas fa-arrow-right mr-2"></i> Home
           </a>
           <a href="/inventory" className="link">
             <i className="fas fa-arrow-right mr-2"></i> Vehicles
+          </a>
+          <a href="/admin" className="link">
+            <i className="fas fa-arrow-right mr-2"></i> Admin
           </a>
           {/* Other quick link items */}
         </div>
