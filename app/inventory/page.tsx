@@ -25,32 +25,38 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="py-60">
+      <div className="py-24">
         <div className="container border mx-auto">
-          {projects.map((project) => (
-            <div className="inline-grid justify-center px-20" key={project._id}>
-              {project.image && project.image.length > 0 && (
-                <div>
-                  <Image
-                    src={project.image[0]?.asset?.url} // Access the URL of the first image
-                    alt={project.make}
-                    width={500}
-                    height={500}
-                  />
-                </div>
-              )}
-              <h2 className="text-4xl bold flex justify-center mt-10">
-                {project.year} {project.make} {project.model}
-              </h2>
-              <a
-                href={`/inventory/${project.slug}`}
-                className="btn flex text-center m-10"
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+            {projects.map((project) => (
+              <div
+                className="flex flex-col items-center mb-10"
                 key={project._id}
               >
-                See More Information
-              </a>
-            </div>
-          ))}
+                {project.image && project.image.length > 0 && (
+                  <div className="w-full max-w-[400px] h-4/5 relative flex items-center justify-center">
+                    <Image
+                      src={project.image[0]?.asset?.url}
+                      alt={project.make}
+                      layout="responsive"
+                      width={1200} // Specify the width of the image
+                      height={800} // Specify the height of the image
+                    />
+                  </div>
+                )}
+                <h2 className="text-4xl font-bold mt-5">
+                  {project.year} {project.make} {project.model}
+                </h2>
+                <a
+                  href={`/inventory/${project.slug}`}
+                  className="btn text-center mt-2"
+                  key={project._id}
+                >
+                  See More Information
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <Footer />
