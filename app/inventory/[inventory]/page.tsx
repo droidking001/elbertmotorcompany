@@ -64,7 +64,7 @@ const ProjectPage = ({ params }: Props) => {
         <div className="container border mx-auto">
           <div className="grid justify-center" key={project?._id}>
             {project?.image && (
-              <div className="text-center">
+              <div className="text-center flex justify-center">
                 <Image
                   src={project.image[currentImageIndex]?.asset?.url}
                   alt={`Image ${currentImageIndex + 1}`}
